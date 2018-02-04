@@ -1,8 +1,19 @@
+package jack.main;
+
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Player {
     private ArrayList<Card> cards = new ArrayList<>();
+    private String name;
 
+    public Player(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
 
     public void addCard(Card card) {
         cards.add(card);
@@ -16,10 +27,6 @@ public class Player {
         return cards.remove(0);
     }
 
-    public String showCards() {
-        return cards.toString();
-    }
-
     public boolean losed() {
         return cards.isEmpty();
     }
@@ -30,5 +37,9 @@ public class Player {
 
     public void outCards() {
         this.cards = new ArrayList<>();
+    }
+
+    public void reverseCards() {
+        Collections.reverse(this.cards);
     }
 }
